@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'antd';
 import './App.css';
+import Home from'./Menu';
 import './bootstrap.css';
 
 
@@ -21,6 +22,7 @@ class Header extends Component {
 
           <Col span={15} offset={1}>
               <div style={{backgroundColor: "#8fd23f"}}>
+              {/*<Home />*/}
                   col-12
               </div>
           </Col>
