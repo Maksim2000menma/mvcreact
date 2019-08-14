@@ -11,7 +11,8 @@ const Home = () =>{
       transitionEnter={false}
       transitionLeave={false}>
       <div>
-        Home
+        <h1>Главная страница</h1>
+        <p>и многое дрругое</p>
       </div>
   </CSSTransitionGroup>
   )

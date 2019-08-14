@@ -1,8 +1,10 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Home from './Home';
-import Works from './Works';
-import About from './About';
+import Login from './Login';
+import Registration from './Registration';
+import Static from './Static';
+import List from './List';
 
 const Content = () =>{
   return(
@@ -10,8 +12,10 @@ const Content = () =>{
     <h1>Содержимое сайта</h1>
     <Switch>
       <Route exact path="/" component={Home}/>
-      <Route path="/works" component={Works}/>
-      <Route path="/about" component={About}/>
+      <Route path="/registration" component={Registration}/>
+      <Route path="/login" component={Login}/>
+      <Route path="/static" component={Static}/>
+      <Route path="/list" component={List}/>
     </Switch>
     </div>
   )
