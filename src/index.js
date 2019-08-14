@@ -1,16 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Header from './Header';
 import App from './App';
 import Footer from './Footer';
+import { HashRouter } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <div>
-  <Header />
+  <HashRouter>
   <App />
-  <Footer />
+  </ HashRouter>
   </div>
   , document.getElementById('root'));
 serviceWorker.unregister();
