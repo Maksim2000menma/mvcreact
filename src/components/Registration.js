@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-
-
+import axios from 'axios';
 
 class Registration extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {last_name: '', first_name: ''};
+    this.state = {
+        last_name: '',
+        first_name: ''
+      };
 
     this.onChangeLast_name = this.onChangeLast_name.bind(this);
     this.onChangeFirst_name = this.onChangeFirst_name.bind(this);
@@ -13,22 +15,22 @@ class Registration extends React.Component {
   }
 
   onSubmit(event){
-    alert(`${this.state.last_name}, добро пожаловать!`);
+    alert(`${this.state.last_name}, ${this.state.first_name}, Все работает`);
     event.preventDefault();
-   // 
-   //  $.ajax({
-   // type: "POST",
-   // url: "../../public/Registration.php",
-   // data: { last_name:  this.state.last_name  ,
-   //         first_name : ${ this.state.first_name }
-   //     },
-   // success:function(res) {
-   //     if(res == "OK")
-   //         return true;
-   //     else
-   //         return false;
-   //      }
-   //    });
+
+    const str = JSON.stringify(this.state);
+    axios.post('http://localhost/backmyapp/',str)
+                .then(function(response) {
+                    console.log(response.data);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+
+
+
+
+
   }
 
 

@@ -10,23 +10,23 @@ const Header = () =>{
     <Row>
       <Col span={12}>
           <div>
-              <p><Link to="/registration">Регистрация</Link></p>
-              <p><Link to="/login">Авторизация</Link></p>
+              <h5><Link to="/registration">Регистрация</Link></h5>
+              <h5><Link to="/login">Авторизация</Link></h5>
           </div>
       </Col>
 
       <Col span={12}>
           <div>
           <Col span={8}>
-                <Link to="/">Главная</Link>
+                <h4><Link to="/">Главная</Link></h4>
             </Col>
 
             <Col span={8}>
-                <Link to="/static">Статичная</Link>
+                <h4><Link to="/static">Статичная</Link></h4>
             </Col>
 
             <Col span={8}>
-                <Link to="/list">Список</Link>
+                <h4><Link to="/list">Список</Link></h4>
             </Col>
           </div>
       </Col>
