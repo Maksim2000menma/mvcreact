@@ -8,8 +8,7 @@ import List from './List';
 
 const Content = () =>{
   return(
-    <div>
-    <h1>Содержимое сайта</h1>
+    <div style={{height:550}}>
     <Switch>
       <Route exact path="/" component={Home}/>
       <Route path="/registration" component={Registration}/>

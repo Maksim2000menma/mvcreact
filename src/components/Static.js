@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { Component } from 'react';
+import axios from 'axios';
 
-const Registration = () =>{
+class Static extends React.Component {
+  render() {
   return(
     <div>
       Статичная страница
     </div>
   )
 }
+}
 
-export default Registration
+export default Static
