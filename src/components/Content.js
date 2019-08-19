@@ -8,7 +8,7 @@ import List from './List';
 
 const Content = () =>{
   return(
-    <div style={{height:550}}>
+    <div>
     <Switch>
       <Route exact path="/" component={Home}/>
       <Route path="/registration" component={Registration}/>
