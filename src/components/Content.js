@@ -5,6 +5,8 @@ import Login from './Login';
 import Registration from './Registration';
 import Static from './Static';
 import List from './List';
+import User from './User';
+import AllInfo from './AllInfo';
 
 const Content = () =>{
   return(
@@ -15,6 +17,8 @@ const Content = () =>{
       <Route path="/login" component={Login}/>
       <Route path="/static" component={Static}/>
       <Route path="/list" component={List}/>
+      <Route path="/user" component={User}/>
+      <Route path="/allinfo" component={AllInfo}/>
     </Switch>
     </div>
   )

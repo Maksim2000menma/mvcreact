@@ -28,6 +28,10 @@ const Header = () =>{
             <Col span={8}>
                 <h4><Link to="/list">Список</Link></h4>
             </Col>
+
+            <Col span={8}>
+                <h4><Link to="/user">Управление</Link></h4>
+            </Col>
           </div>
       </Col>
     </Row>
