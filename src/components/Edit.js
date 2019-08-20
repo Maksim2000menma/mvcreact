@@ -18,7 +18,26 @@ class Static extends React.Component {
     var url = document.URL;
     const id = url.substr(url.lastIndexOf('/') + 1);
 //http://backmyapp/user/allinfo/
-    axios.put(`http://backmyapp/user/allinfo/${id}`)
+    // axios.put(`http://backmyapp/user/allinfo/${id}`)
+    //   .then(response => {
+    //   const lists = response.data;
+    //   console.log(response.data)
+    //     this.setState({ lists });
+    // })
+
+
+
+    axios.put(`http://backmyapp/user/edit/${id}`,{
+      submitapp:'sss',
+      last_name:'sss',
+      first_name: 'sss',
+      login: 'sss',
+      password: 'sss',
+      date_b: '2019-08-01',
+      address: 'sss',
+      role_id: 'sss',
+      description: 'sss'
+    })
       .then(response => {
       const lists = response.data;
       console.log(response.data)
