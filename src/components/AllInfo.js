@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import '../bootstrap.css';
 import { Descriptions, Badge } from 'antd';
 
 class AllInfo extends React.Component {

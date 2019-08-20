@@ -23,9 +23,8 @@ class User extends React.Component {
     })
   }
 
-  render() {
-    const array = [this.state.lists];
 
+  render() {
   return(
     <div>
     <br />
@@ -51,9 +50,10 @@ class User extends React.Component {
             <td>{list.password}</td>
             <td>
               <Link to={"/allinfo/"+list.id}><Button><Icon type="info-circle" spin style={{ fontSize: '20px' }}/></Button></Link>
-              <DeleteUser><Button><Icon type="edit" spin style={{ fontSize: '20px' }}/></Button></DeleteUser>
+              <Link to={"/edit/"+list.id}><Button><Icon type="edit" spin style={{ fontSize: '20px' }}/></Button></Link>
+              <Link to={"/deleteuser/"+list.id}><Button><Icon type="delete" spin style={{ fontSize: '20px' }}/></Button></Link>
 
-              <Button><Icon type="delete" spin style={{ fontSize: '20px' }}/></Button>
+
             </td>
         </tr>
       ) }

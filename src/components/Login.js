@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { Component } from 'react';
 
-const Login = () =>{
+class Login extends React.Component {
+    render() {
   return(
     <div>
       Авторизация
     </div>
   )
+}
 }
 
 export default Login

@@ -7,6 +7,8 @@ import Static from './Static';
 import List from './List';
 import User from './User';
 import AllInfo from './AllInfo';
+import DeleteUser from './DeleteUser';
+import Edit from './Edit';
 
 const Content = () =>{
   return(
@@ -19,6 +21,8 @@ const Content = () =>{
       <Route path="/list" component={List}/>
       <Route path="/user" component={User}/>
       <Route path="/allinfo" component={AllInfo}/>
+      <Route path="/deleteuser" component={DeleteUser}/>
+      <Route path="/edit" component={Edit}/>
     </Switch>
     </div>
   )
