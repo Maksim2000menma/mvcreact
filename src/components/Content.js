@@ -1,5 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+
 import Home from './Home';
 import Login from './Login';
 import Registration from './Registration';
@@ -22,7 +23,7 @@ const Content = () =>{
       <Route path="/user" component={User}/>
       <Route path="/allinfo" component={AllInfo}/>
       <Route path="/deleteuser" component={DeleteUser}/>
-      <Route path="/edit" component={Edit}/>
+      <Route path="/edit/:idUser/" component={Edit}/>
     </Switch>
     </div>
   )
