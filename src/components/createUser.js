@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const { TextArea } = Input;
 
-class Registration extends React.Component {
+class createUser extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,7 +15,8 @@ class Registration extends React.Component {
         password: '',
         description: '',
         address: '',
-        date_b: ''
+        date_b: '',
+        role_id: ''
       };
 
     this.onChangeLast_name = this.onChangeLast_name.bind(this);
@@ -25,12 +26,13 @@ class Registration extends React.Component {
     this.onChangeDescription = this.onChangeDescription.bind(this);
     this.onChangeAddress = this.onChangeAddress.bind(this);
     this.onChangeDateB = this.onChangeDateB.bind(this);
+    this.onChangeRole = this.onChangeRole.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
 
   onSubmit(event){
     const str = JSON.stringify(this.state);
-    axios.post('http://backmyapp/registration/test',str)
+    axios.post('http://backmyapp/user/create',str)
                 .then(function(response) {
                     console.log(response.data);
                 })
@@ -69,12 +71,16 @@ class Registration extends React.Component {
   onChangeDateB(event) {
     this.setState({date_b: event.target.value});
   }
+  onChangeRole(event) {
+    this.setState({role_id: event.target.value});
+  }
+
 
     render() {
       return (
         <div>
         <br />
-        <center><h1>Регистрация</h1></center>
+        <center><h1>создание нового пользователя</h1></center>
 
         <Row>
           <Col span={12} offset={6}>
@@ -126,6 +132,14 @@ class Registration extends React.Component {
                     </Form.Item>
 
                     <Form.Item>
+                      <Input
+                        prefix={<Icon type="plus" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                        placeholder="Роль пользователя (1 2 3)"
+                        name="role_id" value={this.state.role_id} onChange={this.onChangeRole}
+                      />
+                    </Form.Item>
+
+                    <Form.Item>
                         <Button style={{width:'100%'}} type="primary" htmlType="submit" className="login-form-button">
                           Регистрация
                           </Button>
@@ -140,15 +154,5 @@ class Registration extends React.Component {
     }
 }
 
-// <form method="post" onSubmit={this.onSubmit}>
-//   <p><label>Last Name <input type="text" name="last_name" value={this.state.last_name} onChange={this.onChangeLast_name}/></label></p>
-//   <p><label>First Name <input type="text" name="first_name" value={this.state.first_name} onChange={this.onChangeFirst_name}/></label></p>
-//   <p><label>Login <input type="text" name="login" value={this.state.login} onChange={this.onChangeLogin}/></label></p>
-//   <p><label>Password <input type="text" name="password" value={this.state.password} onChange={this.onChangePassword}/></label></p>
-//   <p><label>Description <input type="text" name="description" value={this.state.description} onChange={this.onChangeDescription}/></label></p>
-//   <p><label>Address <input type="text" name="address" value={this.state.address} onChange={this.onChangeAddress}/></label></p>
-//   <p><label>Date_b <input type="date" name="date_b" value={this.state.date_b} onChange={this.onChangeDateB}/></label></p>
-//   <p><input type="submit" value="Отправить" /></p>
-// </form>
 
-export default Registration
+export default createUser

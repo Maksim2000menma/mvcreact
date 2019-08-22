@@ -10,6 +10,7 @@ import User from './User';
 import AllInfo from './AllInfo';
 import DeleteUser from './DeleteUser';
 import Edit from './Edit';
+import CreateUser from './createUser';
 
 const Content = () =>{
   return(
@@ -24,6 +25,7 @@ const Content = () =>{
       <Route path="/allinfo" component={AllInfo}/>
       <Route path="/deleteuser" component={DeleteUser}/>
       <Route path="/edit/:idUser/" component={Edit}/>
+      <Route path="/createUser" component={CreateUser}/>
     </Switch>
     </div>
   )

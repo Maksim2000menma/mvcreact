@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Descriptions, Badge } from 'antd';
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import { Form, Icon, Input, Button, Select, Checkbox } from 'antd';
+
 
 class Static extends React.Component {
   constructor (props)

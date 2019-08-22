@@ -49,14 +49,7 @@ class User extends React.Component {
                 <td>{list.login}</td>
                 <td>{list.password}</td>
                 <td>
-                {(() => {
-                  switch (list.role_id) {
-                    case '1': return "ЗП";
-                    case '2': return "Модератор";
-                    case '3': return "Админ";
-                    default: return "Пусто";
-                  }
-                })()}
+                {list.role_name}
                 </td>
                 <td>
                   <Link to={"/allinfo/"+list.id}><Button><Icon type="info-circle" spin style={{ fontSize: '20px' }}/></Button></Link>
@@ -67,7 +60,7 @@ class User extends React.Component {
             )}
           </tbody>
         </table>
-          <Button type="primary">Создание пользователя</Button>
+          <Link to={"/createUser/"}><Button type="primary">Создание пользователя</Button></Link>
         </div>
       )
   }
