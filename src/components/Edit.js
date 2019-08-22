@@ -19,6 +19,9 @@ class Static extends React.Component {
        date_b: '',
        role_id:''
      };
+     //hoc
+     //fetch
+     //props.data_b
        this.onChangeLast_name = this.onChangeLast_name.bind(this);
        this.onChangeFirst_name = this.onChangeFirst_name.bind(this);
        this.onChangeLogin = this.onChangeLogin.bind(this);
@@ -33,14 +36,25 @@ class Static extends React.Component {
 
 
   componentDidMount() {
-    //получение id (последнего символа) в url
-    var url = document.URL;
-    const id = url.substr(url.lastIndexOf('/') + 1);
-    axios.get(`http://backmyapp/user/allinfo/${id}`)
+    const {idUser} = this.props.match.params;
+
+    axios.get(`http://backmyapp/user/allinfo/${idUser}`)
       .then(response => {
       const lists = response.data;
-      console.log(response.data)
-        this.setState({ lists });
+      console.log(response.data);
+      console.log(lists);
+
+        this.setState({
+          id: response.data['id'],
+          last_name: response.data['last_name'],
+          first_name: response.data['first_name'],
+          login: response.data['login'],
+          password: response.data['password'],
+          description: response.data['description'],
+          address: response.data['address'],
+          data_b: response.data['data_b'],
+          role_id: response.data['role_id'],
+          lists });
     })
   }
 
@@ -65,7 +79,8 @@ class Static extends React.Component {
           console.log(response.data);
           //this.setState({ lists });
         })
-    alert('конец');
+    alert('Редактирование прошло успешно');
+    this.props.history.push('/');
   }
 
   onChangeFirst_name(event){
@@ -101,7 +116,11 @@ class Static extends React.Component {
     this.setState({id: event.target.value});
   }
 
-
+  // {this.state.lists.map(list =>
+  //    <div>
+  // {list.id}
+  // </div>
+  // )}
   render() {
   return(
     <div>
@@ -110,29 +129,24 @@ class Static extends React.Component {
     <br />
 
             <div>
-               {this.state.lists.map(list =>
-                  <div>
-                      {list.last_name}
 
 
-                <form onSubmit={this.onSubmit}>
-                  <Descriptions title="Информация о пользователе" bordered>
-                    <Descriptions.Item label="ID"><input type="text" name="id" value={this.state.id} onChange={this.onChangeId} placeholder={list.id}/></Descriptions.Item>
-                    <Descriptions.Item label="Last name"><input type="text" name="last_name" value={this.state.last_name} onChange={this.onChangeLast_name} placeholder={list.last_name}/></Descriptions.Item>
-                    <Descriptions.Item label="First name"><input type="text" name="first_name" value={this.state.first_name} onChange={this.onChangeFirst_name} placeholder={list.first_name}/></Descriptions.Item>
-                    <Descriptions.Item label="Login"><input type="text" name="login" value={this.state.login} onChange={this.onChangeLogin} placeholder={list.login}/></Descriptions.Item>
-                    <Descriptions.Item label="Password" span={2}><input type="text" name="password" value={this.state.password} onChange={this.onChangePassword} placeholder={list.password}/></Descriptions.Item>
-                    <Descriptions.Item label="Date"><input type="date" name="date_b" value={this.state.date_b} onChange={this.onChangeDateB} placeholder={list.datу
-                    }/></Descriptions.Item>
-                    <Descriptions.Item label="Address"><input type="text" name="address" value={this.state.address} onChange={this.onChangeAddress} placeholder={list.address}/></Descriptions.Item>
-                    <Descriptions.Item label="Role"><input type="text" name="role_id" value={this.state.role_id} onChange={this.onChangeRole} placeholder={list.role_id}/></Descriptions.Item>
-                    <Descriptions.Item label="Description"><input type="text" name="description" value={this.state.description} onChange={this.onChangeDescription} placeholder={list.description}/></Descriptions.Item>
-                  </Descriptions>
-                  <input type="submit" name="submitapp" value="Подтвердить" />
-                </form>
+                    <form onSubmit={this.onSubmit}>
+                      <Descriptions title="Информация о пользователе" bordered>
+                        <Descriptions.Item label="ID"><input type="text" name="id" value={this.state.id} onChange={this.onChangeId} /></Descriptions.Item>
+                        <Descriptions.Item label="Last name"><input type="text" name="last_name" value={this.state.last_name} onChange={this.onChangeLast_name} /></Descriptions.Item>
+                        <Descriptions.Item label="First name"><input type="text" name="first_name" value={this.state.first_name} onChange={this.onChangeFirst_name} /></Descriptions.Item>
+                        <Descriptions.Item label="Login"><input type="text" name="login" value={this.state.login} onChange={this.onChangeLogin} /></Descriptions.Item>
+                        <Descriptions.Item label="Password" span={2}><input type="text" name="password" value={this.state.password} onChange={this.onChangePassword} /></Descriptions.Item>
+                        <Descriptions.Item label="Date"><input type="date" name="date_b" value={this.state.date_b} onChange={this.onChangeDateB} /></Descriptions.Item>
+                        <Descriptions.Item label="Address"><input type="text" name="address" value={this.state.address} onChange={this.onChangeAddress} /></Descriptions.Item>
+                        <Descriptions.Item label="Role"><input type="text" name="role_id" value={this.state.role_id} onChange={this.onChangeRole} /></Descriptions.Item>
+                        <Descriptions.Item label="Description"><input type="text" name="description" value={this.state.description} onChange={this.onChangeDescription} /></Descriptions.Item>
+                      </Descriptions>
+                      <input type="submit" name="submitapp" value="Подтвердить" />
+                    </form>
 
-                </div>
-              )}
+
             </div>
 
     </div>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import {Form,Input,Row,Col,Checkbox,Button,AutoComplete} from 'antd';
 
 class Registration extends React.Component {
   constructor(props) {
