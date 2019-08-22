@@ -42,18 +42,18 @@ class Static extends React.Component {
       .then(response => {
       const lists = response.data;
       console.log(response.data);
-      console.log(lists);
+      console.log(lists[0]['login']);
 
         this.setState({
-          id: response.data['id'],
-          last_name: response.data['last_name'],
-          first_name: response.data['first_name'],
-          login: response.data['login'],
-          password: response.data['password'],
-          description: response.data['description'],
-          address: response.data['address'],
-          data_b: response.data['data_b'],
-          role_id: response.data['role_id'],
+          id: lists[0]['id'],
+          last_name: lists[0]['last_name'],
+          first_name: lists[0]['first_name'],
+          login: lists[0]['login'],
+          password: lists[0]['password'],
+          description: lists[0]['description'],
+          address: lists[0]['address'],
+          date_b: lists[0]['date_b'],
+          role_id: lists[0]['role_id'],
           lists });
     })
   }
@@ -61,10 +61,9 @@ class Static extends React.Component {
   onSubmit(event){
     event.preventDefault();//норм url
     const {idUser} = this.props.match.params;
-
         axios.put(`http://backmyapp/user/edit/${idUser}`,{
-          id:this.state.id,
           submitapp:'good',
+          id:this.state.id,
           last_name:this.state.last_name,
           first_name: this.state.first_name,
           login: this.state.login,
@@ -133,7 +132,7 @@ class Static extends React.Component {
 
                     <form onSubmit={this.onSubmit}>
                       <Descriptions title="Информация о пользователе" bordered>
-                        <Descriptions.Item label="ID"><input type="text" name="id" value={this.state.id} onChange={this.onChangeId} /></Descriptions.Item>
+                        <Descriptions.Item label="ID"><input type="text" name="id" value={this.state.id} onChange={this.onChangeId} readOnly/></Descriptions.Item>
                         <Descriptions.Item label="Last name"><input type="text" name="last_name" value={this.state.last_name} onChange={this.onChangeLast_name} /></Descriptions.Item>
                         <Descriptions.Item label="First name"><input type="text" name="first_name" value={this.state.first_name} onChange={this.onChangeFirst_name} /></Descriptions.Item>
                         <Descriptions.Item label="Login"><input type="text" name="login" value={this.state.login} onChange={this.onChangeLogin} /></Descriptions.Item>
