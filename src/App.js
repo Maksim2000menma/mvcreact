@@ -6,11 +6,21 @@ import './bootstrap.css';
 import './App.css';
 
 class App extends Component {
+//необходимо для просмотра информации после login and Logout
+  state = {
+    auth:false
+  };
+//стрелочная функция куда передаем значение true or false
+  setAuth = (value) => {
+    this.setState({
+      auth:value
+    })
+  }
   render() {
     return (
       <div className="container">
-        <Header />
-        <Content />
+        <Header setAuth = {this.setAuth} />
+        <Content setAuth = {this.setAuth} />
         <Footer />
       </div>
     );

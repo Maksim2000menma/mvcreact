@@ -12,13 +12,17 @@ import DeleteUser from './DeleteUser';
 import Edit from './Edit';
 import CreateUser from './createUser';
 
-const Content = () =>{
+
+const Content = ({setAuth}) =>{
+  console.log(setAuth);
+  const WraperLogin = ()=> <Login setAuth = {setAuth}/>;
+
   return(
     <div>
     <Switch>
       <Route exact path="/" component={Home}/>
       <Route path="/registration" component={Registration}/>
-      <Route path="/login" component={Login}/>
+      <Route path="/login" component={WraperLogin}/>
       <Route path="/static" component={Static}/>
       <Route path="/list" component={List}/>
       <Route path="/user" component={User}/>

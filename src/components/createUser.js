@@ -16,7 +16,7 @@ class createUser extends React.Component {
         description: '',
         address: '',
         date_b: '',
-        role_id: ''
+        role_id: '',
       };
 
     this.onChangeLast_name = this.onChangeLast_name.bind(this);

@@ -52,9 +52,9 @@ class User extends React.Component {
                 {list.role_name}
                 </td>
                 <td>
-                  <Link to={"/allinfo/"+list.id}><Button><Icon type="info-circle" spin style={{ fontSize: '20px' }}/></Button></Link>
-                  <Link to={"/edit/"+list.id}><Button><Icon type="edit" spin style={{ fontSize: '20px' }}/></Button></Link>
-                  <Link to={"/deleteuser/"+list.id}><Button><Icon type="delete" spin style={{ fontSize: '20px' }}/></Button></Link>
+                  <Link to={"/allinfo/"+list.id}><Button><Icon type="info-circle" style={{ fontSize: '20px' }}/></Button></Link>
+                  <Link to={"/edit/"+list.id}><Button><Icon type="edit" style={{ fontSize: '20px' }}/></Button></Link>
+                  <Link to={"/deleteuser/"+list.id}><Button><Icon type="delete" style={{ fontSize: '20px' }}/></Button></Link>
                 </td>
             </tr>
             )}
