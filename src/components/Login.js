@@ -8,9 +8,9 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        login: '',
-        password: ''
-      };
+      login: '',
+      password: ''
+    };
 
     this.onChangeLogin = this.onChangeLogin.bind(this);
     this.onChangePassword = this.onChangePassword.bind(this);
@@ -19,25 +19,25 @@ class Login extends React.Component {
 
   onSubmit(event){
     const {setAuth} = this.props;
-      const str = JSON.stringify(this.state);
-      axios.post('http://backmyapp/login',str)
-                  .then(function(response) {
-                      console.log(response.data);
-                      //запись функций и роли в глобальный localStorage
-                      localStorage.setItem('roleUser',response.data[0]);
-                      localStorage.setItem('funDelete',response.data[1]);
-                      localStorage.setItem('funCreate',response.data[2]);
-                      localStorage.setItem('funRead',response.data[3]);
-                      localStorage.setItem('funEdit',response.data[4]);
-                      localStorage.setItem('login',response.data[5]);
-                      setAuth(true);
-                  })
-                  .catch(function (error) {
-                      console.log(error);
-                  });
-      event.preventDefault();
-      alert(`${this.state.login}, ${this.state.password}, Регистрация прошла успешно`);
-      //this.props.history.push('/');
+    const str = JSON.stringify(this.state);
+    axios.post('http://backmyapp/login',str)
+      .then(function(response) {
+        console.log(response.data);
+        //запись функций и роли в глобальный localStorage
+        localStorage.setItem('roleUser',response.data[0]);
+        localStorage.setItem('funDelete',response.data[1]);
+        localStorage.setItem('funCreate',response.data[2]);
+        localStorage.setItem('funRead',response.data[3]);
+        localStorage.setItem('funEdit',response.data[4]);
+        localStorage.setItem('login',response.data[5]);
+        setAuth(true);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    event.preventDefault();
+    alert(`${this.state.login}, ${this.state.password}, Регистрация прошла успешно`);
+    //this.props.history.push('/');
   }
 
   onChangeLogin(event) {
@@ -48,50 +48,46 @@ class Login extends React.Component {
     this.setState({password: event.target.value});
   }
 
+  render() {
+    return(
+      <div>
+      <br />
+      <center><h1>Авторизация</h1></center>
+      <Row>
+        <Col span={12} offset={6}>
+          <form method="post" onSubmit={this.onSubmit}>
+            <Form.Item>
+              <Input
+                prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                placeholder="Логин"
+                name="login"
+                value={this.state.login} onChange={this.onChangeLogin}
+              />
+            </Form.Item>
+            <Form.Item>
+              <Input
+                prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                type="password"
+                placeholder="Пароль"
+                name="password"
+                value={this.state.password} onChange={this.onChangePassword}
+              />
+            </Form.Item>
+            <Form.Item>
+              <Col span={8}>
+                <Button type="primary" htmlType="submit" className="login-form-button">Вход</Button>
+              </Col>
+              <Col span={16}>
+                Или <Link to={"/registration/"}>зарегистрируйтесь сейчас!</Link>
+              </Col>
+            </Form.Item>
+          </form>
+        </Col>
+      </Row>
+    </div>
+  )
+}
 
-    render() {
-        return(
-          <div>
-          <br />
-            <center><h1>Авторизация</h1></center>
-            <Row>
-              <Col span={12} offset={6}>
-
-                <form method="post" onSubmit={this.onSubmit}>
-                    <Form.Item>
-                        <Input
-                          prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                          placeholder="Логин"
-                          name="login"
-                          value={this.state.login} onChange={this.onChangeLogin}
-                        />
-                    </Form.Item>
-                    <Form.Item>
-                        <Input
-                          prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                          type="password"
-                          placeholder="Пароль"
-                          name="password"
-                          value={this.state.password} onChange={this.onChangePassword}
-                        />
-                    </Form.Item>
-                    <Form.Item>
-                      <Col span={8}>
-                        <Button type="primary" htmlType="submit" className="login-form-button">
-                          Вход
-                        </Button>
-                      </Col>
-                      <Col span={16}>
-                        Или <Link to={"/registration/"}>зарегистрируйтесь сейчас!</Link>
-                      </Col>
-                    </Form.Item>
-                </form>
-
-             </Col>
-           </Row>
-          </div>
-        )
-    }
 }
 
 export default Login

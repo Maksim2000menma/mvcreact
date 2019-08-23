@@ -12,7 +12,7 @@ const InfoUser =() => {
     funEdit : localStorage.getItem('funEdit'),
     login : localStorage.getItem('login')
   };
-  return <p>Роль:{data.roleUser}, Login:{data.login}</p>;
+  return <p>ROLE:{data.roleUser}, LOGIN:{data.login}, READ:{data.funRead}, CREATE:{data.funCreate}, DELETE:{data.funDelete}, EDIT:{data.funEdit}</p>;
 }
 
 class Header extends Component {
