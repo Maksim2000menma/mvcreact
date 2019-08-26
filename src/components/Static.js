@@ -6,6 +6,7 @@ class Static extends React.Component {
   return(
     <div>
       <center><h1>Статичная страница</h1></center>
+      <h1>Просто текст</h1>
     </div>
   )
 }

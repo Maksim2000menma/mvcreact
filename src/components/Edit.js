@@ -4,7 +4,7 @@ import { Descriptions, Badge } from 'antd';
 import { Form, Icon, Input, Button, Select, Checkbox } from 'antd';
 
 
-class Static extends React.Component {
+class Edit extends React.Component {
   constructor (props)
   {
      super(props);
@@ -116,43 +116,33 @@ class Static extends React.Component {
     this.setState({id: event.target.value});
   }
 
-  // {this.state.lists.map(list =>
-  //    <div>
-  // {list.id}
-  // </div>
-  // )}
+
   render() {
   return(
     <div>
-    <br / >
-    <center><h1>Редактирование информации</h1></center>
-    <br />
-
-            <div>
-
-
-                    <form onSubmit={this.onSubmit}>
-                      <Descriptions title="Информация о пользователе" bordered>
-                        <Descriptions.Item label="ID"><input type="text" name="id" value={this.state.id} onChange={this.onChangeId} readOnly/></Descriptions.Item>
-                        <Descriptions.Item label="Last name"><input type="text" name="last_name" value={this.state.last_name} onChange={this.onChangeLast_name} /></Descriptions.Item>
-                        <Descriptions.Item label="First name"><input type="text" name="first_name" value={this.state.first_name} onChange={this.onChangeFirst_name} /></Descriptions.Item>
-                        <Descriptions.Item label="Login"><input type="text" name="login" value={this.state.login} onChange={this.onChangeLogin} /></Descriptions.Item>
-                        <Descriptions.Item label="Password" span={2}><input type="text" name="password" value={this.state.password} onChange={this.onChangePassword} /></Descriptions.Item>
-                        <Descriptions.Item label="Date"><input type="date" name="date_b" value={this.state.date_b} onChange={this.onChangeDateB} /></Descriptions.Item>
-                        <Descriptions.Item label="Address"><input type="text" name="address" value={this.state.address} onChange={this.onChangeAddress} /></Descriptions.Item>
-                        <Descriptions.Item label="Role"><input type="text" name="role_id" value={this.state.role_id} onChange={this.onChangeRole} /></Descriptions.Item>
-                        <Descriptions.Item label="Description"><input type="text" name="description" value={this.state.description} onChange={this.onChangeDescription} /></Descriptions.Item>
-                      </Descriptions>
-                      <input type="submit" name="submitapp" value="Подтвердить" />
-                    </form>
-
-
-            </div>
-
+      <br / >
+      <center><h1>Редактирование информации</h1></center>
+      <br />
+      <div>
+        <form onSubmit={this.onSubmit}>
+          <Descriptions title="Информация о пользователе" bordered>
+            <Descriptions.Item label="ID"><input type="text" name="id" value={this.state.id} onChange={this.onChangeId} readOnly/></Descriptions.Item>
+            <Descriptions.Item label="Last name"><input type="text" name="last_name" value={this.state.last_name} onChange={this.onChangeLast_name} /></Descriptions.Item>
+            <Descriptions.Item label="First name"><input type="text" name="first_name" value={this.state.first_name} onChange={this.onChangeFirst_name} /></Descriptions.Item>
+            <Descriptions.Item label="Login"><input type="text" name="login" value={this.state.login} onChange={this.onChangeLogin} /></Descriptions.Item>
+            <Descriptions.Item label="Password" span={2}><input type="text" name="password" value={this.state.password} onChange={this.onChangePassword} /></Descriptions.Item>
+            <Descriptions.Item label="Date"><input type="date" name="date_b" value={this.state.date_b} onChange={this.onChangeDateB} /></Descriptions.Item>
+            <Descriptions.Item label="Address"><input type="text" name="address" value={this.state.address} onChange={this.onChangeAddress} /></Descriptions.Item>
+            <Descriptions.Item label="Role"><input type="text" name="role_id" value={this.state.role_id} onChange={this.onChangeRole} /></Descriptions.Item>
+            <Descriptions.Item label="Description"><input type="text" name="description" value={this.state.description} onChange={this.onChangeDescription} /></Descriptions.Item>
+          </Descriptions>
+          <input type="submit" name="submitapp" value="Подтвердить" />
+        </form>
+      </div>
     </div>
   )
 }
 
 }
 
-export default Static
+export default Edit

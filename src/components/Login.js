@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
-import { Row, Col } from 'antd';
+import { Form, Icon, Input, Button, Checkbox, Row, Col } from 'antd';
+import { Redirect } from 'react-router';
 
 class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       login: '',
-      password: ''
+      password: '',
+      redirect: false
     };
 
     this.onChangeLogin = this.onChangeLogin.bind(this);
@@ -35,9 +36,15 @@ class Login extends React.Component {
       .catch(function (error) {
         console.log(error);
       });
-    event.preventDefault();
-    alert(`${this.state.login}, ${this.state.password}, Регистрация прошла успешно`);
-    //this.props.history.push('/user');
+
+      if ((this.state.login != '') && (this.state.password != '')){
+        this.setState({ redirect: true });//перенаправление true
+        event.preventDefault();
+        alert(`${this.state.login}, ${this.state.password}, Вы вошли в систему`);
+      }
+      else {
+        alert('Ошибка');
+      }
   }
 
   onChangeLogin(event) {
@@ -49,6 +56,13 @@ class Login extends React.Component {
   }
 
   render() {
+
+    const  redirect  = this.state.redirect;
+
+     if (redirect) {
+       return <Redirect to='/user'/>;
+     }
+
     return(
       <div>
       <br />
@@ -84,6 +98,7 @@ class Login extends React.Component {
           </form>
         </Col>
       </Row>
+
     </div>
   )
 }

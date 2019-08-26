@@ -5,10 +5,10 @@ import { Descriptions, Badge } from 'antd';
 class AllInfo extends React.Component {
   constructor (props)
   {
-     super(props);
-     this.state = {
-       lists: []
-     };
+    super(props);
+    this.state = {
+      lists: []
+    };
   }
 
   componentDidMount() {
@@ -26,14 +26,14 @@ class AllInfo extends React.Component {
   render() {
     const array = [this.state.lists];
 
-  return(
-    <div>
-    <br / >
-    <center><h1>Подробная информация</h1></center>
-    <br />
-          { this.state.lists.map(list =>
-            <div>
-            <Descriptions title="Информация о пользователе" bordered>
+    return(
+      <div>
+      <br / >
+      <center><h1>Подробная информация</h1></center>
+      <br />
+      { this.state.lists.map(list =>
+        <div>
+          <Descriptions title="Информация о пользователе" bordered>
             <Descriptions.Item label="ID">{list.id}</Descriptions.Item>
             <Descriptions.Item label="Last name">{list.last_name}</Descriptions.Item>
             <Descriptions.Item label="First name">{list.first_name}</Descriptions.Item>
@@ -42,19 +42,13 @@ class AllInfo extends React.Component {
             <Descriptions.Item label="Date">{list.date_b}</Descriptions.Item>
             <Descriptions.Item label="Address">{list.address}</Descriptions.Item>
             <Descriptions.Item label="Role">{list.role_id}</Descriptions.Item>
-            <Descriptions.Item label="Description">
-              {list.description}
-            </Descriptions.Item>
+            <Descriptions.Item label="Description">{list.description}</Descriptions.Item>
           </Descriptions>
-            </div>
-          ) }
-
-
-
-
+        </div>
+      ) }
     </div>
-  )
-}
+    )
+  }
 }
 
 export default AllInfo
