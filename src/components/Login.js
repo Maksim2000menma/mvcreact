@@ -24,6 +24,7 @@ class Login extends React.Component {
     axios.post('http://backmyapp/login',str)
       .then(function(response) {
         console.log(response.data);
+        alert(response.data);
         //запись функций и роли в глобальный localStorage
         localStorage.setItem('roleUser',response.data[0]);
         localStorage.setItem('funDelete',response.data[1]);
@@ -36,7 +37,6 @@ class Login extends React.Component {
       .catch(function (error) {
         console.log(error);
       });
-
       if ((this.state.login != '') && (this.state.password != '')){
         this.setState({ redirect: true });//перенаправление true
         event.preventDefault();
@@ -56,12 +56,10 @@ class Login extends React.Component {
   }
 
   render() {
-
     const  redirect  = this.state.redirect;
-
-     if (redirect) {
-       return <Redirect to='/user'/>;
-     }
+    if (redirect) {
+      return <Redirect to='/user'/>;
+    }
 
     return(
       <div>

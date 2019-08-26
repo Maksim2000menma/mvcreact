@@ -16,12 +16,13 @@ import CreateUser from './createUser';
 const Content = ({setAuth}) =>{
   console.log(setAuth);
   const WraperLogin = ()=> <Login setAuth = {setAuth}/>;
+  const WraperRegistration = ()=> <Registration setAuth = {setAuth}/>;
 
   return(
     <div>
     <Switch>
       <Route exact path="/" component={Home}/>
-      <Route path="/registration" component={Registration}/>
+      <Route path="/registration" component={WraperRegistration}/>
       <Route path="/login" component={WraperLogin}/>
       <Route path="/static" component={Static}/>
       <Route path="/list" component={List}/>

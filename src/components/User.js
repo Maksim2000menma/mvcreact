@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import { Button } from 'antd';
 import { Icon } from 'antd';
 
-
 const FunAllInfo =() => {
   if (localStorage.getItem('funRead') == 1){
     return <Button><Icon type="info-circle" style={{ fontSize: '20px' }}/></Button>;

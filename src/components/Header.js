@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from 'antd';
 import { Row, Col } from 'antd';
+import { Redirect } from 'react-router';
 
 
 const OpRegistration =() => {

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {Form,Icon,Input,Row,Col,Checkbox,Button,AutoComplete} from 'antd';
 import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router';
 
 const { TextArea } = Input;
 
@@ -15,7 +16,8 @@ class Registration extends React.Component {
         password: '',
         description: '',
         address: '',
-        date_b: ''
+        date_b: '',
+        redirect: false
       };
 
     this.onChangeLast_name = this.onChangeLast_name.bind(this);
@@ -31,15 +33,43 @@ class Registration extends React.Component {
   onSubmit(event){
     const str = JSON.stringify(this.state);
     axios.post('http://backmyapp/registration/test',str)
-                .then(function(response) {
-                    console.log(response.data);
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
-   event.preventDefault();
+      .then(function(response) {
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    event.preventDefault();
     alert(`${this.state.last_name}, ${this.state.first_name}, Регистрация прошла успешно`);
-    this.props.history.push('/');
+    //this.props.history.push('/');
+    //Авторизация после записи пользователя в бд
+    const {setAuth} = this.props;
+    const str2 = JSON.stringify(this.state);
+    axios.post('http://backmyapp/registration/logafter',str2)
+      .then(function(response) {
+        console.log(response.data);
+        alert(response.data);
+        //запись функций и роли в глобальный localStorage
+        localStorage.setItem('roleUser',response.data[0]);
+        localStorage.setItem('funDelete',response.data[1]);
+        localStorage.setItem('funCreate',response.data[2]);
+        localStorage.setItem('funRead',response.data[3]);
+        localStorage.setItem('funEdit',response.data[4]);
+        localStorage.setItem('login',response.data[5]);
+        setAuth(true);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+      if ((this.state.login != '') && (this.state.password != '')){
+        this.setState({ redirect: true });//перенаправление true
+        event.preventDefault();
+        alert(`${this.state.login}, ${this.state.password}, Вы вошли в систему`);
+      }
+      else {
+        alert('Ошибка');
+      }
+      //-----------------------------------------------
   }
 
 
@@ -71,6 +101,10 @@ class Registration extends React.Component {
   }
 
     render() {
+      const  redirect  = this.state.redirect;
+      if (redirect) {
+        return <Redirect to='/user'/>;
+      }
       return (
         <div>
         <br />
