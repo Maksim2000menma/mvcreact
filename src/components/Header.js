@@ -3,6 +3,35 @@ import { Link } from 'react-router-dom';
 import { Button } from 'antd';
 import { Row, Col } from 'antd';
 
+
+const OpRegistration =() => {
+  if ((localStorage.getItem('roleUser') == 1) || (localStorage.getItem('roleUser') == 2) || (localStorage.getItem('roleUser') == 3)){
+    return '';
+  }
+  else {
+    return <Link to="/registration">Регистрация</Link>;
+  }
+}
+
+const OpAuthorization =() => {
+  if ((localStorage.getItem('roleUser') == 1) || (localStorage.getItem('roleUser') == 2) || (localStorage.getItem('roleUser') == 3)){
+    return '';
+  }
+  else {
+    return <Link to="/login">Авторизация</Link>;
+  }
+}
+
+const OpLogout =() => {
+  if ((localStorage.getItem('roleUser') == 1) || (localStorage.getItem('roleUser') == 2) || (localStorage.getItem('roleUser') == 3)){
+    return 'Выход';
+  }
+  else {
+    return '';
+  }
+}
+
+
 const InfoUser =() => {
   const data = {
     roleUser : localStorage.getItem('roleUser'),
@@ -12,7 +41,12 @@ const InfoUser =() => {
     funEdit : localStorage.getItem('funEdit'),
     login : localStorage.getItem('login')
   };
-  return <p>ROLE:{data.roleUser}, LOGIN:{data.login}, READ:{data.funRead}, CREATE:{data.funCreate}, DELETE:{data.funDelete}, EDIT:{data.funEdit}</p>;
+  if ((data.roleUser == 1) || (data.roleUser == 2) || (data.roleUser == 3)){
+    return <p>ROLE:{data.roleUser}, LOGIN:<b>{data.login}</b>, READ:{data.funRead}, CREATE:{data.funCreate}, DELETE:{data.funDelete}, EDIT:{data.funEdit}</p>;
+  }
+  else {
+    return '';
+  }
 }
 
 class Header extends Component {
@@ -42,9 +76,9 @@ render() {
     <Row>
       <Col span={12}>
         <div>
-          <h5><Link to="/registration">Регистрация</Link></h5>
-          <h5><Link to="/login">Авторизация</Link></h5>
-          <button onClick={this.clickLogout}>Выход</button>
+          <h5><OpRegistration /></h5>
+          <h5><OpAuthorization /></h5>
+          <h5><a onClick={this.clickLogout}><OpLogout /></a></h5>
           <InfoUser />
         </div>
       </Col>

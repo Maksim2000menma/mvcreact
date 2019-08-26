@@ -70,7 +70,6 @@ render() {
             <th>Last_name</th>
             <th>First_name</th>
             <th>Login</th>
-            <th>Password</th>
             <th>Role</th>
             <th>Function</th>
           </tr>
@@ -82,7 +81,6 @@ render() {
               <td>{list.last_name}</td>
               <td>{list.first_name}</td>
               <td>{list.login}</td>
-              <td>{list.password}</td>
               <td>{list.role_name}</td>
               <td>
                 <Link to={"/allinfo/"+list.id}><FunAllInfo /></Link>

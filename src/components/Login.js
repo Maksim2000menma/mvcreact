@@ -37,7 +37,7 @@ class Login extends React.Component {
       });
     event.preventDefault();
     alert(`${this.state.login}, ${this.state.password}, Регистрация прошла успешно`);
-    //this.props.history.push('/');
+    //this.props.history.push('/user');
   }
 
   onChangeLogin(event) {

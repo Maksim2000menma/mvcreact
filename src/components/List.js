@@ -40,7 +40,6 @@ class List extends React.Component {
                 <p><b>Last name</b> - {list.last_name}</p>
                 <p><b>First name</b> - {list.first_name}</p>
                 <p><b>Login</b> - {list.login}</p>
-                <p><b>Password</b> - {list.password}</p>
             </Card>
             <br />
             </Col>
