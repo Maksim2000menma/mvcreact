@@ -131,12 +131,14 @@ class createUser extends React.Component {
                         <Input type="date" name="date_b" style={{width:'100%', height: 30}} value={this.state.date_b} onChange={this.onChangeDateB}/>
                     </Form.Item>
 
+                  
+
                     <Form.Item>
-                      <Input
-                        prefix={<Icon type="plus" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                        placeholder="Роль пользователя (1 2 3)"
-                        name="role_id" value={this.state.role_id} onChange={this.onChangeRole}
-                      />
+                      <select value={this.state.role_id} onChange={this.onChangeRole}>
+                        <option value="1">1) ЗП</option>
+                        <option value="2">2) Модератор</option>
+                        <option value="3">3) Админ</option>
+                      </select>
                     </Form.Item>
 
                     <Form.Item>

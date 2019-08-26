@@ -65,7 +65,7 @@ class Header extends Component {
     localStorage.removeItem("funRead");
     localStorage.removeItem("funEdit");
     localStorage.removeItem("login");
-     setAuth(false);
+    setAuth(false);
     console.log(this.props);
     alert('Выход');
   }

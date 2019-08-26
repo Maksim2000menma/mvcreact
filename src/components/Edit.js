@@ -20,9 +20,7 @@ class Edit extends React.Component {
        date_b: '',
        role_id:''
      };
-     //hoc
-     //fetch
-     //props.data_b
+
        this.onChangeLast_name = this.onChangeLast_name.bind(this);
        this.onChangeFirst_name = this.onChangeFirst_name.bind(this);
        this.onChangeLogin = this.onChangeLogin.bind(this);
@@ -133,7 +131,15 @@ class Edit extends React.Component {
             <Descriptions.Item label="Password" span={2}><input type="text" name="password" value={this.state.password} onChange={this.onChangePassword} /></Descriptions.Item>
             <Descriptions.Item label="Date"><input type="date" name="date_b" value={this.state.date_b} onChange={this.onChangeDateB} /></Descriptions.Item>
             <Descriptions.Item label="Address"><input type="text" name="address" value={this.state.address} onChange={this.onChangeAddress} /></Descriptions.Item>
-            <Descriptions.Item label="Role"><input type="text" name="role_id" value={this.state.role_id} onChange={this.onChangeRole} /></Descriptions.Item>
+
+            <Descriptions.Item label="Role">
+              <select value={this.state.role_id} onChange={this.onChangeRole}>
+                <option value="1">1) ЗП</option>
+                <option value="2">2) Модератор</option>
+                <option value="3">3) Админ</option>
+              </select>
+            </Descriptions.Item>
+
             <Descriptions.Item label="Description"><input type="text" name="description" value={this.state.description} onChange={this.onChangeDescription} /></Descriptions.Item>
           </Descriptions>
           <input type="submit" name="submitapp" value="Подтвердить" />
@@ -142,7 +148,6 @@ class Edit extends React.Component {
     </div>
   )
 }
-
 }
 
 export default Edit
