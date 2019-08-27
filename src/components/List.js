@@ -18,37 +18,37 @@ class List extends React.Component {
   componentDidMount() {
     axios.get('http://backmyapp/list/test')
       .then(response => {
-      const lists = response.data;
+        const lists = response.data;
         this.setState({ lists });
-    })
+      })
   }
 
   render() {
     const array = [this.state.lists];
 
-  return(
-    <div>
-    <br / >
-    <center><h1>Список всех пользователей</h1></center>
-    <br />
+    return(
+      <div>
+      <br / >
+      <center><h1>Список всех пользователей</h1></center>
+      <br />
 
-      <Row gutter={16}>
-          { this.state.lists.map(list =>
-            <Col span={8}>
-            <Card title={"LOGIN - "+list.login} style={{ width: 300 }}>
-                <p><b>id</b> - {list.id}</p>
-                <p><b>Last name</b> - {list.last_name}</p>
-                <p><b>First name</b> - {list.first_name}</p>
-                <p><b>Login</b> - {list.login}</p>
-            </Card>
-            <br />
-            </Col>
-          ) }
-      </Row>
+        <Row gutter={16}>
+            { this.state.lists.map(list =>
+              <Col span={8}>
+              <Card title={"LOGIN - "+list.login} style={{ width: 300 }}>
+                  <p><b>id</b> - {list.id}</p>
+                  <p><b>Last name</b> - {list.last_name}</p>
+                  <p><b>First name</b> - {list.first_name}</p>
+                  <p><b>Login</b> - {list.login}</p>
+              </Card>
+              <br />
+              </Col>
+            ) }
+        </Row>
 
-    </div>
-  )
-}
+      </div>
+    )
+  }
 }
 
 

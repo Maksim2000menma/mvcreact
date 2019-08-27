@@ -33,15 +33,15 @@ class createUser extends React.Component {
   onSubmit(event){
     const str = JSON.stringify(this.state);
     axios.post('http://backmyapp/user/create',str)
-                .then(function(response) {
-                    console.log(response.data);
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
+    .then(function(response) {
+      console.log(response.data);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
    event.preventDefault();
-    alert(`${this.state.last_name}, ${this.state.first_name}, Регистрация прошла успешно`);
-    this.props.history.push('/');
+   alert(`${this.state.last_name}, ${this.state.first_name}, Регистрация прошла успешно`);
+   this.props.history.push('/');
   }
 
 
@@ -81,76 +81,68 @@ class createUser extends React.Component {
         <div>
         <br />
         <center><h1>создание нового пользователя</h1></center>
-
         <Row>
           <Col span={12} offset={6}>
-
               <form method="post" onSubmit={this.onSubmit}>
-                    <Form.Item>
-                        <Input
-                          prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                          placeholder="Last name"
-                          name="last_name" value={this.state.last_name} onChange={this.onChangeLast_name}
-                        />
-                    </Form.Item>
-                    <Form.Item>
-                        <Input
-                          prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                          placeholder="First name"
-                          name="first_name" value={this.state.first_name} onChange={this.onChangeFirst_name}
-                        />
-                    </Form.Item>
-                    <Form.Item>
-                        <Input
-                          prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                          placeholder="Логин"
-                          name="login" value={this.state.login} onChange={this.onChangeLogin}
-                        />
-                    </Form.Item>
-                    <Form.Item>
-                        <Input
-                          prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                          type="password"
-                          placeholder="Password"
-                          name="password" value={this.state.password} onChange={this.onChangePassword}
-                        />
-                    </Form.Item>
-                    <Form.Item>
-                        <TextArea
-                          rows={4}
-                          placeholder="Description"
-                          name="description" value={this.state.description} onChange={this.onChangeDescription}
-                        />
-                    </Form.Item>
-                    <Form.Item>
-                        <Input
-                          prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                          placeholder="Address"
-                          name="address" value={this.state.address} onChange={this.onChangeAddress}
-                        />
-                        <Input type="date" name="date_b" style={{width:'100%', height: 30}} value={this.state.date_b} onChange={this.onChangeDateB}/>
-                    </Form.Item>
-
-                  
-
-                    <Form.Item>
-                      <select value={this.state.role_id} onChange={this.onChangeRole}>
-                        <option value="1">1) ЗП</option>
-                        <option value="2">2) Модератор</option>
-                        <option value="3">3) Админ</option>
-                      </select>
-                    </Form.Item>
-
-                    <Form.Item>
-                        <Button style={{width:'100%'}} type="primary" htmlType="submit" className="login-form-button">
-                          Регистрация
-                          </Button>
-                    </Form.Item>
+                <Form.Item>
+                  <Input
+                    prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                    placeholder="Last name"
+                    name="last_name" value={this.state.last_name} onChange={this.onChangeLast_name}
+                  />
+                </Form.Item>
+                <Form.Item>
+                  <Input
+                    prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                    placeholder="First name"
+                    name="first_name" value={this.state.first_name} onChange={this.onChangeFirst_name}
+                  />
+                </Form.Item>
+                <Form.Item>
+                  <Input
+                    prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                    placeholder="Логин"
+                    name="login" value={this.state.login} onChange={this.onChangeLogin}
+                  />
+                </Form.Item>
+                <Form.Item>
+                  <Input
+                    prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                    type="password"
+                    placeholder="Password"
+                    name="password" value={this.state.password} onChange={this.onChangePassword}
+                  />
+                </Form.Item>
+                <Form.Item>
+                  <TextArea
+                    rows={4}
+                    placeholder="Description"
+                    name="description" value={this.state.description} onChange={this.onChangeDescription}
+                  />
+                </Form.Item>
+                <Form.Item>
+                  <Input
+                    prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                    placeholder="Address"
+                    name="address" value={this.state.address} onChange={this.onChangeAddress}
+                  />
+                  <Input type="date" name="date_b" style={{width:'100%', height: 30}} value={this.state.date_b} onChange={this.onChangeDateB}/>
+                </Form.Item>
+                <Form.Item>
+                  <select value={this.state.role_id} onChange={this.onChangeRole}>
+                    <option value="1">1) ЗП</option>
+                    <option value="2">2) Модератор</option>
+                    <option value="3">3) Админ</option>
+                  </select>
+                </Form.Item>
+                <Form.Item>
+                  <Button style={{width:'100%'}} type="primary" htmlType="submit" className="login-form-button">
+                    Регистрация
+                  </Button>
+                </Form.Item>
               </form>
-
-          </Col>
-      </Row>
-
+            </Col>
+          </Row>
         </div>
       );
     }

@@ -25,10 +25,9 @@ class DeleteUser extends React.Component {
   render() {
   return(
     <div>
-    <br / >
-    <center><h1>Удаление выполнено</h1></center>
-    <br />
-
+      <br / >
+      <center><h1>Удаление выполнено</h1></center>
+      <br />
     </div>
   )
 }

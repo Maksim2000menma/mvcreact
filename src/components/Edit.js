@@ -116,37 +116,50 @@ class Edit extends React.Component {
 
 
   render() {
-  return(
-    <div>
-      <br / >
-      <center><h1>Редактирование информации</h1></center>
-      <br />
-      <div>
-        <form onSubmit={this.onSubmit}>
-          <Descriptions title="Информация о пользователе" bordered>
-            <Descriptions.Item label="ID"><input type="text" name="id" value={this.state.id} onChange={this.onChangeId} readOnly/></Descriptions.Item>
-            <Descriptions.Item label="Last name"><input type="text" name="last_name" value={this.state.last_name} onChange={this.onChangeLast_name} /></Descriptions.Item>
-            <Descriptions.Item label="First name"><input type="text" name="first_name" value={this.state.first_name} onChange={this.onChangeFirst_name} /></Descriptions.Item>
-            <Descriptions.Item label="Login"><input type="text" name="login" value={this.state.login} onChange={this.onChangeLogin} /></Descriptions.Item>
-            <Descriptions.Item label="Password" span={2}><input type="text" name="password" value={this.state.password} onChange={this.onChangePassword} /></Descriptions.Item>
-            <Descriptions.Item label="Date"><input type="date" name="date_b" value={this.state.date_b} onChange={this.onChangeDateB} /></Descriptions.Item>
-            <Descriptions.Item label="Address"><input type="text" name="address" value={this.state.address} onChange={this.onChangeAddress} /></Descriptions.Item>
+    if ((localStorage.getItem('roleUser') == 2) || (localStorage.getItem('roleUser') == 3))
+    {
+      return(
+        <div>
+          <br / >
+          <center><h1>Редактирование информации</h1></center>
+          <br />
+          <div>
+            <form onSubmit={this.onSubmit}>
+              <Descriptions title="Информация о пользователе" bordered>
+                <Descriptions.Item label="ID"><input type="text" name="id" value={this.state.id} onChange={this.onChangeId} readOnly/></Descriptions.Item>
+                <Descriptions.Item label="Last name"><input type="text" name="last_name" value={this.state.last_name} onChange={this.onChangeLast_name} /></Descriptions.Item>
+                <Descriptions.Item label="First name"><input type="text" name="first_name" value={this.state.first_name} onChange={this.onChangeFirst_name} /></Descriptions.Item>
+                <Descriptions.Item label="Login"><input type="text" name="login" value={this.state.login} onChange={this.onChangeLogin} /></Descriptions.Item>
+                <Descriptions.Item label="Password" span={2}><input type="text" name="password" value={this.state.password} onChange={this.onChangePassword} /></Descriptions.Item>
+                <Descriptions.Item label="Date"><input type="date" name="date_b" value={this.state.date_b} onChange={this.onChangeDateB} /></Descriptions.Item>
+                <Descriptions.Item label="Address"><input type="text" name="address" value={this.state.address} onChange={this.onChangeAddress} /></Descriptions.Item>
 
-            <Descriptions.Item label="Role">
-              <select value={this.state.role_id} onChange={this.onChangeRole}>
-                <option value="1">1) ЗП</option>
-                <option value="2">2) Модератор</option>
-                <option value="3">3) Админ</option>
-              </select>
-            </Descriptions.Item>
+                <Descriptions.Item label="Role">
+                  <select value={this.state.role_id} onChange={this.onChangeRole}>
+                    <option value="1">1) ЗП</option>
+                    <option value="2">2) Модератор</option>
+                    <option value="3">3) Админ</option>
+                  </select>
+                </Descriptions.Item>
 
-            <Descriptions.Item label="Description"><input type="text" name="description" value={this.state.description} onChange={this.onChangeDescription} /></Descriptions.Item>
-          </Descriptions>
-          <input type="submit" name="submitapp" value="Подтвердить" />
-        </form>
-      </div>
-    </div>
-  )
+                <Descriptions.Item label="Description"><input type="text" name="description" value={this.state.description} onChange={this.onChangeDescription} /></Descriptions.Item>
+              </Descriptions>
+              <input type="submit" name="submitapp" value="Подтвердить" />
+            </form>
+          </div>
+        </div>
+      )
+    }
+    else{
+      return(
+        <div>
+        <br/>
+          <h1>Нет доступа к данному функционалу!</h1>
+          <br/>
+        </div>
+      )
+    }
+
 }
 }
 

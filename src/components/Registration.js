@@ -43,9 +43,9 @@ class Registration extends React.Component {
     alert(`${this.state.last_name}, ${this.state.first_name}, Регистрация прошла успешно`);
     //this.props.history.push('/');
     //Авторизация после записи пользователя в бд
-    const {setAuth} = this.props;
-    const str2 = JSON.stringify(this.state);
-    axios.post('http://backmyapp/registration/logafter',str2)
+     const {setAuth} = this.props;
+    // const str2 = JSON.stringify(this.state);
+    axios.post('http://backmyapp/registration/logafter',str)
       .then(function(response) {
         console.log(response.data);
         alert(response.data);
